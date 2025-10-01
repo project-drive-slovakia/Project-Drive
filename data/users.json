@@ -3,30 +3,5 @@
     "username": "Dominik",
     "password": "110598",
     "registeredAt": "2025-09-30T23:17:18.114Z"
-  },
-  {
-    "username": "Test",
-    "password": "110598",
-    "registeredAt": "2025-10-01T17:04:18.481Z"
-  },
-  {
-    "username": "David",
-    "password": "david123",
-    "registeredAt": "2025-10-01T18:25:25.744Z"
-  },
-  {
-    "username": "Skuska",
-    "password": "skuska111",
-    "registeredAt": "2025-10-01T18:27:35.509Z"
-  },
-  {
-    "username": "Testujeme",
-    "password": "heslo123",
-    "registeredAt": "2025-10-01T18:36:20.758Z"
-  },
-  {
-    "username": "Karin",
-    "password": "karin111",
-    "registeredAt": "2025-10-01T18:55:21.621Z"
   }
 ]
