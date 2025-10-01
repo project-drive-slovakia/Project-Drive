@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Drive – Main</title>
+  <link rel="stylesheet" href="main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+    
+    <video autoplay muted loop playsinline class="bg-video">
+    <source src="/asset/video/background.mp4" type="video/mp4" />
+        Tvoj prehliadač nepodporuje video pozadie.
+    </video>
+    <div class="video-overlay"></div>
+
+    <div class="orientation-lock">
+        <p>📴 Otáčanie zakázané.<br>Použi vertikálny režim.</p>
+    </div>
+
+  <script>
+    if (localStorage.getItem('crewLoggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+
+  <!-- Glitch logo -->
+  <div class="glitch-logo-wrapper">
+    <img src="/asset/image/logo.png" class="logo base" alt="Project Drive logo" />
+    <img src="/asset/image/logo.png" class="logo red" alt="Glitch red layer" />
+    <img src="/asset/image/logo.png" class="logo cyan" alt="Glitch cyan layer" />
+  </div>
+
+  <!-- Logout ikonka -->
+  <img src="/asset/image/x.png" alt="Odhlásiť sa" class="logout-icon" onclick="logout()" />
+
+  <!-- Crew-only tlačidlá -->
+  <div class="button-wrapper">
+    <button class="btn" onclick="window.location.href='theworld.html'">THE WORLD</button>
+    <button class="btn">EVENTY</button>
+    <button class="btn">MOJA AURA</button>
+    <button class="btn">SHOWROOM</button>
+    <button class="btn">PRIATELIA</button>
+    <button class="btn">MôJ PROFIL</button>
+  </div>
+
+<script>
+  function logout() {
+    const username = localStorage.getItem('crewUsername');
+    const deviceId = localStorage.getItem('crewDeviceId');
+
+    fetch('/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, deviceId })
+    })
+    .finally(() => {
+      localStorage.removeItem('crewLoggedIn');
+      localStorage.removeItem('crewUsername');
+      localStorage.removeItem('crewToken');
+      localStorage.removeItem('crewDeviceId');
+      window.location.href = 'index.html';
+    });
+  }
+
+  function validateSession() {
+    const username = localStorage.getItem('crewUsername');
+    const token = localStorage.getItem('crewToken');
+    const deviceId = localStorage.getItem('crewDeviceId');
+
+    if (!username || !token || !deviceId) return;
+
+    fetch('/validate-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, token, deviceId })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.valid) {
+        alert('⚠️ Tvoja crew session bola ukončená.');
+        logout();
+      }
+    })
+    .catch(() => {
+      console.warn('⚠️ Nepodarilo sa overiť session.');
+    });
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      setInterval(validateSession, 30000);
+    }, 5000);
+  });
+</script>
+
+</body>
+</html>

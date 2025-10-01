@@ -1,0 +1,43 @@
+/* Skryté štandardne */
+.orientation-lock {
+  display: none;
+}
+
+/* Zobrazí sa iba v landscape režime */
+@media screen and (orientation: landscape) {
+  .orientation-lock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .orientation-lock p {
+    font-size: 18px;
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  /* Skryj crew obsah */
+  .main-content,
+  .button-wrapper,
+  .glitch-logo-wrapper,
+  .logout-icon {
+    display: none !important;
+  }
+}
+
+body {
+  background-color: black;
+  font-family: 'Share Tech Mono', monospace;
+  color: white;
+}
+

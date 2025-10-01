@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Project Drive – The World</title>
+
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="theworld.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+  <script>
+    if (localStorage.getItem('crewLoggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+
+  <div class="glitch-logo-wrapper">
+    <img src="/asset/image/logo.png" class="logo base" alt="Project Drive logo" />
+    <img src="/asset/image/logo.png" class="logo red" alt="Glitch red layer" />
+    <img src="/asset/image/logo.png" class="logo cyan" alt="Glitch cyan layer" />
+  </div>
+
+  <div class="back-icon" onclick="window.location.href='main.html'">
+    <img src="/asset/image/back.png" alt="Späť na main" />
+  </div>
+
+  <div id="left-icons">
+  <img src="/asset/image/police.png" alt="Nahlásiť hliadku" class="action-icon icon-police" onclick="reportPatrol()" />
+  <img src="/asset/image/problem.png" alt="Mám problém" class="action-icon icon-problem" onclick="reportIssue()" />
+  <img src="/asset/image/center.png" alt="Vycentrovať polohu" class="action-icon icon-center" onclick="centerMap()" />
+</div>
+
+  <div id="map"></div>
+
+  <div id="chat-container">
+    <div id="chat-messages"></div>
+    <input type="text" id="chat-input" maxlength="20" placeholder="Napíš správu..." />
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+ <script src="theworld.js"></script>
+
+
+</body>
+</html>

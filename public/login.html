@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prihlásenie</title>
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+<div class="orientation-lock">
+  <p>📴 Otáčanie zakázané.<br>Použi vertikálny režim.</p>
+</div>
+
+  <!-- Glitch logo -->
+  <div class="glitch-logo-wrapper">
+    <img src="/asset/image/logo.png" class="logo base" />
+    <img src="/asset/image/logo.png" class="logo red" />
+    <img src="/asset/image/logo.png" class="logo cyan" />
+  </div>
+
+  <!-- Formulár -->
+  <div id="loginWrapper" class="buttons">
+    <h1>Prihlásenie</h1>
+    <form id="loginForm">
+      <input type="text" name="username" placeholder="Používateľské meno" required class="btn" />
+      <input type="password" name="password" placeholder="Heslo" required class="btn" />
+      <button type="submit" class="btn">Prihlásiť sa</button>
+    </form>
+  </div>
+
+  <a href="index.html" class="home-button">Späť</a>
+
+  <script src="login.js"></script>
+</body>
+</html>

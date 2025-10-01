@@ -1,0 +1,99 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed; /* 💥 zablokuje scroll aj na mobile */
+  top: 0;
+  left: 0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 18px;
+}
+
+/* Logo fixne hore */
+.glitch-logo-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  z-index: 10;
+}
+
+/* Vrstvy loga */
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+}
+
+.logo.red {
+  filter: drop-shadow(0 0 2px red);
+  animation: glitchShiftRed 1.5s infinite;
+  opacity: 0.6;
+}
+
+.logo.cyan {
+  filter: drop-shadow(0 0 2px cyan);
+  animation: glitchShiftCyan 1.5s infinite;
+  opacity: 0.6;
+}
+
+.logo.base {
+  z-index: 2;
+  opacity: 1;
+}
+
+/* Glitch pohyb vrstiev */
+@keyframes glitchShiftRed {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes glitchShiftCyan {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(2px, -1px); }
+  50% { transform: translate(-2px, 1px); }
+  75% { transform: translate(1px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Tlačidlá pod sebou, centrované */
+.buttons {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centrovanie na stred */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centrovanie obsahu */
+  gap: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #444;
+}

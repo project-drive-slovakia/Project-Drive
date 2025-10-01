@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrácia</title>
+  <link rel="stylesheet" href="register.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+  <div class="orientation-lock">
+    <p>📴 Otáčanie zakázané.<br>Použi vertikálny režim.</p>
+  </div>
+
+  <!-- Glitch logo -->
+  <div class="glitch-logo-wrapper">
+    <img src="/asset/image/logo.png" class="logo base" alt="Project Drive logo" />
+    <img src="/asset/image/logo.png" class="logo red" alt="Glitch red layer" />
+    <img src="/asset/image/logo.png" class="logo cyan" alt="Glitch cyan layer" />
+  </div>
+
+  <!-- Formulár -->
+  <div id="formWrapper" class="buttons">
+    <h1>Registrácia</h1>
+    <form id="registerForm">
+      <input type="text" name="username" placeholder="Používateľské meno" required class="btn" />
+      <input type="password" name="password" placeholder="Heslo" required class="btn" />
+      <input type="password" name="confirm" placeholder="Heslo znova" required class="btn" />
+      <button type="button" class="btn" onclick="checkUsernameThenValidate()">Registrovať sa</button>
+    </form>
+  </div>
+
+  <!-- Scanner -->
+  <div id="scannerWrapper" style="display:none;">
+    <div style="text-align: center;">Naskenuj prístupový kód na zraze!</div><br>
+    <div id="qr-reader" style="width:300px; margin:0 auto;"></div>
+  </div>
+
+  <!-- Späť -->
+  <a href="index.html" class="home-button">Späť</a>
+
+  <!-- QR scanner + skript -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="register.js"></script>
+</body>
+</html>
